@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packtica Audit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="logo">PACKTICA</div>
+      <h1>Packtica Audit</h1>
+      <p class="subtitle">Quick check to find your packaging pain points</p>
+    </header>
+
+    <main>
+      <section id="step1" class="screen">
+        <p class="step-indicator">Step 1 of 3</p>
+        <h2>Info</h2>
+
+        <form id="infoForm" novalidate>
+          <div class="field">
+            <label for="company">Company / Brand</label>
+            <input id="company" name="company" type="text" autocomplete="organization" required>
+            <p id="company_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <p id="name_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="role">Role</label>
+            <select id="role" name="role" required>
+              <option value="">Select role</option>
+              <option value="Owner / Founder">Owner / Founder</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operations / Production">Operations / Production</option>
+              <option value="Procurement / Purchasing">Procurement / Purchasing</option>
+              <option value="QA / Compliance">QA / Compliance</option>
+              <option value="Sales / Business Dev">Sales / Business Dev</option>
+              <option value="Others">Others</option>
+            </select>
+            <p id="role_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <p id="email_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="text" autocomplete="tel" required>
+            <p id="phone_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry" required>
+              <option value="">Select industry</option>
+              <option value="FMCG">FMCG</option>
+              <option value="Health &amp; Beauty">Health &amp; Beauty</option>
+              <option value="Automotive / Lubricants">Automotive / Lubricants</option>
+              <option value="Others">Others</option>
+            </select>
+            <p id="industry_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div id="industry_other_wrap" class="field is-hidden" hidden>
+            <label for="industry_other">Industry (please specify)</label>
+            <input id="industry_other" name="industry_other" type="text" placeholder="Example: Pharma, Medical Devices, Electronics, etc.">
+            <p id="industry_other_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <fieldset id="interested_group" class="checkbox-group">
+              <legend>Interested in</legend>
+              <label class="checkbox-option">
+                <input type="checkbox" name="interested_in" value="Packaging">
+                <span>Packaging</span>
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="interested_in" value="Label / Sticker">
+                <span>Label / Sticker</span>
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="interested_in" value="SmartKood (QR / loyalty / lucky draw)">
+                <span>SmartKood (QR / loyalty / lucky draw)</span>
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" name="interested_in" value="Not sure">
+                <span>Not sure</span>
+              </label>
+            </fieldset>
+            <p id="interested_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="monthly_output">Monthly output</label>
+            <select id="monthly_output" name="monthly_output" required>
+              <option value="">Select monthly output</option>
+              <option value="&lt; 5,000 / month">&lt; 5,000 / month</option>
+              <option value="5,000&ndash;20,000 / month">5,000&ndash;20,000 / month</option>
+              <option value="20,000&ndash;100,000 / month">20,000&ndash;100,000 / month</option>
+              <option value="100,000&ndash;500,000 / month">100,000&ndash;500,000 / month</option>
+              <option value="500,000+ / month">500,000+ / month</option>
+            </select>
+            <p id="monthly_output_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes / Biggest headache</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+            <p id="notes_error" class="error-text" aria-live="polite"></p>
+          </div>
+
+          <div class="button-row">
+            <button id="step1Next" type="button" class="btn btn-primary" disabled>Next</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="step2" class="screen is-hidden" hidden>
+        <p class="step-indicator">Step 2 of 3</p>
+        <h2>Questions Page A</h2>
+        <form id="questionsAForm" novalidate>
+          <div id="questionsAContainer"></div>
+          <div class="button-row">
+            <button id="step2Back" type="button" class="btn btn-secondary">Back</button>
+            <button id="step2Next" type="button" class="btn btn-primary" disabled>Next</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="step3" class="screen is-hidden" hidden>
+        <p class="step-indicator">Step 3 of 3</p>
+        <h2>Questions Page B</h2>
+        <form id="questionsBForm" novalidate>
+          <div id="questionsBContainer"></div>
+          <div class="button-row">
+            <button id="step3Back" type="button" class="btn btn-secondary">Back</button>
+            <button id="step3Results" type="button" class="btn btn-primary" disabled>See Results</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="results" class="screen is-hidden" hidden>
+        <div class="results-topbar">
+          <h2>Results</h2>
+          <button id="restartBtn" type="button" class="btn btn-ghost">Restart</button>
+        </div>
+
+        <div class="result-card result-header">
+          <p><strong>Company:</strong> <span id="resultCompany"></span></p>
+          <p><strong>Name:</strong> <span id="resultName"></span></p>
+          <p><strong>Role:</strong> <span id="resultRole"></span></p>
+          <p><strong>Industry:</strong> <span id="resultIndustry"></span></p>
+        </div>
+
+        <div class="result-card">
+          <h3>Overall Score</h3>
+          <div class="overall-head">
+            <span id="overallPct" class="overall-pct">0%</span>
+            <span id="overallRating" class="rating-badge rating-high-risk">High Risk</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="overallBarFill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <h3>Bucket Scores</h3>
+          <div id="bucketRows"></div>
+        </div>
+
+        <div class="result-card">
+          <h3>Top Pain Points</h3>
+          <ul id="painPointsList" class="pain-list"></ul>
+          <p id="painPointsMessage" class="pain-message is-hidden"></p>
+        </div>
+
+        <div class="result-card">
+          <h3>Recommendations</h3>
+          <div id="recommendationsGrid" class="recommendations-grid"></div>
+        </div>
+
+        <div class="button-row results-actions">
+          <a id="waBtn" class="btn btn-primary" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </div>
+
+        <p class="pdpa-note">By clicking ‘WhatsApp Us’, you consent to Packtica collecting and using the details provided for consultation purposes in accordance with PDPA.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
